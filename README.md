@@ -18,5 +18,10 @@ for people using Cantera in Python.
 
 ## A Quick Tour
 
-Well, nothing's here yet.
+Import the pantera library into Python:
+
+```python
+import pantera
+```
+
 
