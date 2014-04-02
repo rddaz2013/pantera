@@ -21,7 +21,44 @@ for people using Cantera in Python.
 Import the pantera library into Python:
 
 ```python
-import pantera
+import pantera 
 ```
+
+### Gases
+
+Pantera defines several utility functions
+for things like specification of composition,
+conversion of formats, mixing of gases, and 
+others.
+
+```python
+from pantera.gases import *
+```
+
+### Reactors 
+
+You can create Pantera reactor objects. These 
+extend Cantera's Reactor classes.
+
+You can import all of Pantera, keeping your namespace clean:
+
+```python
+import pantera
+
+pr = pantera.PanteraReactor()
+```
+
+or just import some of Pantera, directly into the namespace:
+
+```python
+from pantera.reactors import *
+
+pr = PanteraReactor()
+```
+
+
+
+
+
 
 
