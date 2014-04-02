@@ -7,9 +7,9 @@ A toolbox for using and extending Cantera in Python.
 
 Cantera is an object-oriented toolkit for chemical kinetics! 
 
-Link: (Cantera on Google Code)[https://code.google.com/p/cantera/]
+Link: [Cantera on Google Code](https://code.google.com/p/cantera/)
 
-Link: (Cantera Information on the CMR Wiki)[http://charlesmartinreid.com/wiki/CanteraOutline] 
+Link: [Cantera Information on the CMR Wiki](http://charlesmartinreid.com/wiki/CanteraOutline)
 
 ## What is Pantera?
 
