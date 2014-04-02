@@ -1,4 +1,0 @@
-from pantera import *
-
-
-
