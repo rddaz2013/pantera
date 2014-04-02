@@ -27,6 +27,16 @@ you can extend Cantera for your own uses.
 
 
 
+# Installing Pantera
+
+You can install Pantera by using setup.py:
+
+```
+python setup.py install
+```
+
+
+
 # Let's Get Started
 
 Cool. We'll start with a tour of the Pantera module.
