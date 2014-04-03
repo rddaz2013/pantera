@@ -29,13 +29,29 @@ you can extend Cantera for your own uses.
 
 # Installing Pantera
 
+Pantera has a couple of dependencies. Once these are installed,
+you can do the usual setup.py thing to install Pantera.
+
+## Dependencies
+
+
+
+## Installing
+
 You can install Pantera by using setup.py:
 
 ```
 python setup.py install
 ```
 
+But you'll need a couple of prerequisites first.
 
+## Dependencies
+
+* Cantera
+* Matplotlib
+* itertools
+* JSON
 
 # Let's Get Started
 
