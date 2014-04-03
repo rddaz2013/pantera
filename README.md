@@ -45,6 +45,8 @@ You can import the pantera library into Python:
 
 ```python
 import pantera 
+
+pantera_test() # doesn't work yet
 ```
 
 ## Gases submodule
@@ -56,7 +58,11 @@ others.
 
 ```python
 from pantera.gases import *
+
+fuel = MethaneAir()
 ```
+
+[Visit the gases README.md for details](pantera/gases/README.md)
 
 ## Reactors submodule
 
@@ -78,4 +84,7 @@ from pantera.reactors import *
 
 pr = PanteraReactor()
 ```
+
+[Visit the reactors README.md for details](pantera/reactors/README.md)
+
 
