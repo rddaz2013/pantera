@@ -1,6 +1,7 @@
 import Cantera
 import itertools 
 from numpy import *
+from CanteraCompositionUtils import *
 
 """
 =============================

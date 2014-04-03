@@ -59,7 +59,7 @@ others.
 ```python
 from pantera.gases import *
 
-fuel = MethaneAir()
+ready_to_ignite = MethaneAir(phi=0.5)
 ```
 
 [Visit the gases README.md for details](pantera/gases/README.md)
