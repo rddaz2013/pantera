@@ -55,18 +55,19 @@ Gas mixing:
 def convert_gas_to_composition_vector( gas ):
     """
     Converts a Cantera gas with a specified composition into
-    a composition vector
+    a composition vector of mole fractions
     """
-    return gas.moleFractions()
+    return gas.X
 
 def convert_gas_to_composition_dict( gas ):
     """
     Converts a Cantera gas with a specified composition into
-    a composition dict
+    a composition dict of mole fractions
     """
     d = {}
-    for sp in gas.speciesNames():
-        d[sp] = gas.moleFraction(sp)
+    for sp in gas.species_names:
+        if gas.mole_fraction(sp) > 0.0:
+            d[sp] = gas.mole_fraction(sp)
     return d
 
 def convert_gas_to_composition_string( gas ):
@@ -100,14 +101,15 @@ def convert_composition_vector_to_dict( g, Xv ):
     Xd = {}
     for iv, v in enumerate(Xv):
         if v > 0.0:
-            Xd[g.speciesName(iv)] = v
+            Xd[g.species_name(iv)] = v
     return Xd
 
 def convert_composition_dict_to_vector( g, Xd ):
     """Convert a composition dict Xd into a vector, for a given gas g"""
-    Xv = zeros( g.nSpecies(), )
+    Xv = zeros( g.n_species, )
     for k in Xd.keys():
-        Xv[g.speciesIndex(k)] = Xd[k]
+        Xv[g.species_index(k)] = Xd[k]
+    Xv = Xv/sum(Xv)
     return Xv
 
 

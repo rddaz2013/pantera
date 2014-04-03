@@ -1,2 +1,3 @@
-from pantera.reactors import *
+from pantera import *
+
 
