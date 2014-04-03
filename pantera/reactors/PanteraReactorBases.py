@@ -1,5 +1,4 @@
 from Cantera import *
-from Cantera.Reactor import *
 
 class PanteraReactor(Reactor):
     """

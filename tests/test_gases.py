@@ -1,23 +1,39 @@
 from pantera.gases import * 
+from Cantera import *
+
+def mix1():
+    T = 873.15
+    P = OneAtm
+    X = "CO2:2.0, CO:1.0"
+    sol = Solution('gri30.xml')
+    sol.set(T=T,P=P,X=X)
+    return sol
+
+def mix2():
+    T = 973.15
+    P = 3*OneAtm
+    X = "CH4:8.0, C2H6:1.0"
+    sol = Solution('gri30.xml')
+    sol.set(T=T,P=P,X=X)
+    return sol
+
+def mix3():
+    T = 1073.15
+    P = 5*OneAtm
+    X = "N2:10.0, HE:1.0"
+    sol = Solution('gri30.xml')
+    sol.set(T=T,P=P,X=X)
+    return sol
 
 def get_gases_to_mix():
-
-    gs = [Solution('gri30.xml'),
-          Solution('gri30.xml'),
-          Solution('gri30.xml')]
-    
-    Ts = [873.15, 973.15, 1073.15]
-    Ps = [OneAtm, 2*OneAtm, 3*OneAtm]
-    Xs = ["CO2:1.0", "N2:0.79, O2:0.21", "C2H6:1.0, CH4:10.0"]
-    
-    for g,T,P,X in zip(gs,Ts,Ps,Xs):
-    	set(g,T=T,P=P,X=X)
-
-    return gs
+    g1=mix1()
+    g2=mix2()
+    g3=mix3()
+    return [g1,g2,g3]
 
 def test_mixing():
     """Testing getGasMixture function"""
-    gs = get_gases()
+    gs = get_gases_to_mix()
     result = getGasMixture(gs,[1.0,1.0,2.0], model_file='gri30.xml', gas_phase_name='gri30')
 
 #def test_composition()
