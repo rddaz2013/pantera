@@ -7,5 +7,5 @@ setup(name='pantera',
       author='Charles Reid',
       author_email='root@charlesmartinreid.com',
       license='MIT',
-      packages=['pantera'],
+      packages=['pantera','pantera.gases','pantera.reactors'],
       zip_safe=False)
