@@ -1,6 +1,6 @@
-from Cantera import *
+import cantera as ct
 
-class PanteraReactor(Reactor):
+class PanteraReactor(ct.Reactor):
     """
     This is a very barebones extension of the
     Cantera Reactor type.
@@ -40,7 +40,7 @@ class PanteraReactor(Reactor):
             contents = Air()
 
         # Now call the parent constructor
-        Reactor.__init__(self,contents,**kwargs)
+        ct.Reactor.__init__(self,contents,**kwargs)
 
     def problemSetup(self):
         """
@@ -67,6 +67,6 @@ class PanteraReactor(Reactor):
         * options - options to pass to graphviz dot
         """
         file_name += ".dot"
-        pd = rxnpath.PathDiagram(detailed='true',**options)
-        rxnpath.write(self._contents, str(element), file_name, pd)
+        rxnpath = ct.ReactionPathDiagram(self._contents, str(element))
+        rxnpath.write_dot(file_name)
 

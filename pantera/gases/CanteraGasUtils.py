@@ -1,6 +1,6 @@
-import Cantera
-import itertools 
+import cantera as ct
 from numpy import *
+
 from CanteraCompositionUtils import *
 
 """
@@ -67,13 +67,13 @@ def getGasMixture( gases,     # list of gases
     # (i.e, only works for limited T differences 
     #       among geses being mixed):
     T, P, X = mixture_TPX( gases, Xsnorm )
-    gas = Cantera.importPhase(model_file,gas_phase_name)
-    gas.set(T=T,P=P,X=X)
+    gas = ct.Solution(model_file,gas_phase_name)
+    gas.TPX = T,P,X
 
     return gas
 
 
-def mixture_TPX( gases, Xs, verbosity=0):
+def mixture_TPX( gases, Xs):
     """
     Given a list of gases and their mole fractions,
     this returns the TPX info needed to create
@@ -86,23 +86,17 @@ def mixture_TPX( gases, Xs, verbosity=0):
 
     mixture_d = {}
 
-    if verbosity > 0:
-        print "Looping over all species of all gases to make a new mixture:"
     for gas,wx_i in zip(gases,Xs):
-        for sp in gas.speciesNames():
-            if verbosity > 0:
-                if sp == 'CH3':
-                    print "CH3 mole frac = %0.4g"%(gas.moleFraction(sp))
+        for sp in gas.species_names:
+            mf = gas.mole_fraction(sp)
             if sp in mixture_d:
-                mixture_d[sp] += wx_i * gas.moleFraction(sp)
-            elif gas.moleFraction(sp) != 0.0: 
-                mixture_d[sp] = wx_i * gas.moleFraction(sp)
+                mixture_d[sp] += wx_i * mf
+            elif mf != 0.0: 
+                mixture_d[sp] = wx_i * mf
             else:
                 pass
 
     mixture_s = convert_composition_dict_to_string(mixture_d)
-    if verbosity > 0:
-        print "Mixing resulted in gas with X = "+mixture_s
 
     # --------------
     # H
@@ -118,20 +112,20 @@ def mixture_TPX( gases, Xs, verbosity=0):
     # first compute c_pmix
     cp_mix = 0
     for gas, wx_i in zip(gases,Xs):
-        cp_mix += wx_i * gas.cp_mole()
+        cp_mix += wx_i * gas.cp_mole
 
     # next compute T_mix
     T_mix = 0
     for gas, wx_i in zip(gases,Xs):
-        coeff = ( wx_i * gas.cp_mole() )/( cp_mix )
-        T_mix += coeff * gas.temperature()
+        coeff = ( wx_i * gas.cp_mole )/( cp_mix )
+        T_mix += coeff * gas.T
 
     # --------------
     # P
 
     press = 0.0
     for gas,wx_i in zip(gases,Xs):
-        press += wx_i * gas.pressure() 
+        press += wx_i * gas.P
 
     # -------------------
     # Return TPX
@@ -162,11 +156,11 @@ def mixture_HPX( gases, Xs ):
     mixture_d = {}
 
     for gas,wx_i in zip(gases,Xs):
-        for sp in gas.speciesNames():
+        for sp in gas.species_names:
             if sp in mixture_d:
-                mixture_d[sp] += wx_i * gas.moleFraction(sp)
+                mixture_d[sp] += wx_i * gas.mole_fraction(sp)
             elif gas.moleFraction(sp) != 0.0: 
-                mixture_d[sp] = wx_i * gas.moleFraction(sp)
+                mixture_d[sp] = wx_i * gas.mole_fraction(sp)
             else:
                 pass
 
@@ -185,14 +179,14 @@ def mixture_HPX( gases, Xs ):
     # compute H_mix
     H_mix = 0
     for gas, wx_i in zip(gases,Xs):
-        Hmix += wx_i * gas.enthalpy_mole()
+        Hmix += wx_i * gas.enthalpy_mole
 
     # --------------
     # P
 
     press = 0.0
     for gas,wx_i in zip(gases,Xs):
-        press += wx_i * gas.pressure() 
+        press += wx_i * gas.P
 
     # -------------------
     # Return HPX

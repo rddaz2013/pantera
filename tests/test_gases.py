@@ -1,12 +1,11 @@
-from pantera.gases import * 
-from Cantera import *
+from pantera import * 
 
 def mix1():
     T = 873.15
     P = OneAtm
     X = "CO2:2.0, CO:1.0"
     sol = Solution('gri30.xml')
-    sol.set(T=T,P=P,X=X)
+    sol.TPX = T,P,X
     return sol
 
 def mix2():
@@ -14,15 +13,15 @@ def mix2():
     P = 3*OneAtm
     X = "CH4:8.0, C2H6:1.0"
     sol = Solution('gri30.xml')
-    sol.set(T=T,P=P,X=X)
+    sol.TPX = T,P,X
     return sol
 
 def mix3():
     T = 1073.15
     P = 5*OneAtm
-    X = "N2:10.0, HE:1.0"
+    X = "N2:10.0, AR:1.0"
     sol = Solution('gri30.xml')
-    sol.set(T=T,P=P,X=X)
+    sol.TPX = T,P,X
     return sol
 
 def get_gases_to_mix():
