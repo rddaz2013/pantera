@@ -145,8 +145,32 @@ def test_dict2vector():
     
 
 def test_string2dict():
-    pass
+    """
+    Testing conversion of species string to species dict.
+    """
+    g = mix2()
+
+    starting_string = "CO2:2.0, CO:2.0"
+
+    lead_dict = convert_composition_string_to_dict(starting_string)
+
+    gold_dict = {}
+    gold_dict['CO2'] = 2.0
+    gold_dict['CO']  = 2.0
+
+    # normalize
+    gold_sum = sum( [gold_dict[k] for k in gold_dict.keys()] )
+    for k in gold_dict.keys():
+        gold_dict[k] = gold_dict[k]/gold_sum
+
+    print lead_dict
+    print gold_dict
+
+    assert lead_dict==gold_dict
 
 def test_dict2string():
-    pass
+    """
+    Testing conversion of species dict to species string.
+    """
+    g = mix2()
 

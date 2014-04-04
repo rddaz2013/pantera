@@ -133,6 +133,12 @@ def convert_composition_string_to_dict( X ):
             # or is empty
             err = "ERROR: CanteraGasUtils: your X is probably specified incorrectly. Expected type list, got type "+type(X)
             raise Exception(err)
+
+    # normalize
+    results_sum = sum( [results[k] for k in results.keys()] )
+    for k in results.keys():
+        results[k] = results[k]/results_sum
+
     return results
 
 def convert_composition_dict_to_string( d ):
