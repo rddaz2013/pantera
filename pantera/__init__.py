@@ -1,10 +1,12 @@
-from cantera import Solution
+import cantera as ct
 from .gases import *
 from .reactors import *
 
+from cantera import *
+
 # Monkey patch cantera so that the old ways of using it still work
 
-OneAtm = one_atm
+OneAtm = ct.one_atm
 
 def mole_fraction(self,speciesName):
     X = self[speciesName].X
@@ -22,11 +24,11 @@ def mass_fraction(self,speciesName):
     else:
         return Y[0]
 
-Solution.mole_fraction = mole_fraction
+ct.Solution.mole_fraction = mole_fraction
 
-Solution.mass_fraction = mass_fraction
+ct.Solution.mass_fraction = mass_fraction
 
-Solution.nSpecies = Solution.n_species
+ct.Solution.nSpecies = ct.Solution.n_species
 
 
 

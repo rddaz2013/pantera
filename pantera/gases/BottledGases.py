@@ -1,4 +1,4 @@
-from Cantera import *
+import cantera as ct
 from CanteraGasUtils import *
 
 """
@@ -24,7 +24,7 @@ class GRI30(object):
         try:
             return self.sol
         except AttributeError:
-            self.sol = Solution('gri30.xml')
+            self.sol = ct.Solution('gri30.xml')
             return self.sol
 
 class MethaneAir(object):
@@ -37,7 +37,7 @@ class MethaneAir(object):
         try:
             return self.sol
         except AttributeError:
-                    self.sol = GRI30()
-                    return self.sol
+            self.sol = ct.Solution('gri30.xml')
+            return self.sol
 
 

@@ -1,4 +1,4 @@
-import Cantera
+import cantera as ct
 import itertools 
 from numpy import *
 
