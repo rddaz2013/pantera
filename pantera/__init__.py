@@ -4,9 +4,18 @@ from .reactors import *
 
 from cantera import *
 
-# Monkey patch cantera so that the old ways of using it still work
 
-OneAtm = ct.one_atm
+
+#################################
+# Add the mechanisms directory to Cantera's search path
+# so we don't have to copy XML files everywhere
+import pkg_resources 
+ct.add_directory( pkg_resources.resource_filename('ocm','models') )
+
+
+#################################
+# Extend Solution class so you can
+# ask for specific species mass/mole fractions
 
 def mole_fraction(self,speciesName):
     X = self[speciesName].X
@@ -28,7 +37,10 @@ ct.Solution.mole_fraction = mole_fraction
 
 ct.Solution.mass_fraction = mass_fraction
 
+#################################
+# Monkey patch cantera so that the old ways of using it still work
+
+OneAtm = ct.one_atm
+
 ct.Solution.nSpecies = ct.Solution.n_species
-
-
 

@@ -27,6 +27,19 @@ class GRI30(object):
             self.sol = ct.Solution('gri30.xml')
             return self.sol
 
+class SanDiego(object):
+    """
+    Defines a gas using the 
+    UC San Diego combustion mechanism
+    web.eng.ucsd.edu/mae/groups/combustion/mechanism.html
+    """
+    def __new__(self):
+        try:
+            return self.sol
+        except AttributeError:
+            self.sol = ct.Solution('SanDiego201402_complete.cti')
+            return self.sol
+
 class MethaneAir(object):
     """
     Defines a mixtue of methane and air
