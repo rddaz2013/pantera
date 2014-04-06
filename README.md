@@ -34,7 +34,17 @@ you can do the usual setup.py thing to install Pantera.
 
 ## Dependencies
 
+In order to use Pantera, you will, at the very least, need to install Cantera. 
+There are other features of Pantera that require other libraries. Their dependencies
+are optional.
 
+Required:
+* Cantera
+* JSON
+
+Optional:
+* Matplotlib
+* itertools
 
 ## Installing
 
@@ -44,14 +54,11 @@ You can install Pantera by using setup.py:
 python setup.py install
 ```
 
-But you'll need a couple of prerequisites first.
+then import pantera like any other library:
 
-## Dependencies
-
-* Cantera
-* Matplotlib
-* itertools
-* JSON
+```python
+import pantera as pt
+```
 
 # Let's Get Started
 
@@ -85,22 +92,24 @@ ready_to_ignite = MethaneAir(phi=0.5)
 You can create Pantera reactor objects. These 
 extend Cantera's Reactor classes.
 
-You can import all of Pantera, keeping your namespace clean:
+You can create them once you import Pantera:
 
 ```python
-import pantera
-
-pr = pantera.PanteraReactor()
-```
-
-or just import some of Pantera, directly into the namespace:
-
-```python
-from pantera.reactors import *
+from pantera import *
 
 pr = PanteraReactor()
 ```
 
 [Visit the reactors README.md for details](pantera/reactors/README.md)
 
+## Engineering submodule
+
+Cantera is very handy for everyday engineering calculations. This submodule
+creates some objects and methods that assist in these kinds of calculations.
+
+```python
+from pantera import *
+
+h = Heater()
+```
 
