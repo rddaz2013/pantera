@@ -1,4 +1,4 @@
-fom pantera import *
+from pantera import *
 
 def test_SanDiego():
     sd = SanDiego()
