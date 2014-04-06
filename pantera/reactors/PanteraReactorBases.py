@@ -1,4 +1,5 @@
 import cantera as ct
+from ..gases.BottledGases import *
 
 class PanteraReactor(ct.Reactor):
     """

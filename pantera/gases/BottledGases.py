@@ -15,6 +15,19 @@ mechanisms and compositions.
 Inspired by Cantera's GRI30().
 """
 
+class Air(object):
+    """
+    Defines an air gas
+    using the GRI 3.0 mchanism.
+    """
+    def __new__(self):
+        try:
+            return self.sol
+        except AttributeError:
+            self.sol = ct.Solution('gri30.xml')
+            self.TPX = 298.15, ct.one_atm, "N2:0.79,O2:0.21"
+            return self.sol
+
 class GRI30(object):
     """
     Defines a gas using the 

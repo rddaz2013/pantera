@@ -10,7 +10,7 @@ from cantera import *
 # Add the mechanisms directory to Cantera's search path
 # so we don't have to copy XML files everywhere
 import pkg_resources 
-ct.add_directory( pkg_resources.resource_filename('ocm','models') )
+ct.add_directory( pkg_resources.resource_filename('pantera','mechanisms') )
 
 
 #################################
@@ -38,9 +38,11 @@ ct.Solution.mole_fraction = mole_fraction
 ct.Solution.mass_fraction = mass_fraction
 
 #################################
-# Monkey patch cantera so that the old ways of using it still work
+# Monkey patch cantera 
 
 OneAtm = ct.one_atm
 
 ct.Solution.nSpecies = ct.Solution.n_species
+
+#ct.Reactor.P = ct.Reactor.thermo.P
 
