@@ -1,7 +1,29 @@
 import cantera as ct
 from ..gases.BottledGases import *
 
-class PanteraReactor(ct.Reactor):
+class CanteraReactor(ct.Reactor):
+    """
+    Monkey patch the Cantera reactor class
+    """
+    def get_P(self):
+        return self.thermo.P
+    def set_P(self,newP):
+        self.thermo.P = newP
+    P = property(get_P,set_P)
+
+    def get_X(self):
+        return self.thermo.X
+    def set_X(self,newX):
+        self.thermo.X = newX
+    X = property(get_X,set_X)
+
+    def get_contents(self):
+        return self.thermo
+    def set_contents(self):
+        raise Exception("Error: Cantera reactor: you can't set the contents of a reactor directly.")
+    _contents = property(get_contents,set_contents)
+
+class PanteraReactor(CanteraReactor):
     """
     This is a very barebones extension of the
     Cantera Reactor type.

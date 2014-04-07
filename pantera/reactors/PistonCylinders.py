@@ -16,11 +16,11 @@ class PistonCylinder(PanteraReactor):
         # Create the environment 
         if env_gas == None:
             env_gas = Air()
-            env_gas.set(Temperature=self._contents.temperature(),Pressure=self._contents.pressure())
-        self.env = Reservoir(env_gas)
+            env_gas.TPX = self.T,self.thermo.P,self.thermo.X
+        self.env = ct.Reservoir(env_gas)
 
         # Install the piston
-        self.w = Wall(self, self.env) 
+        self.w = ct.Wall(self, self.env) 
 
 
 
