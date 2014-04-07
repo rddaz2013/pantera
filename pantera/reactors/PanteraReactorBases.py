@@ -5,18 +5,28 @@ class CanteraReactor(ct.Reactor):
     """
     Monkey patch the Cantera reactor class
     """
+    # P pressure property
     def get_P(self):
         return self.thermo.P
     def set_P(self,newP):
         self.thermo.P = newP
     P = property(get_P,set_P)
 
+    # Y mass frac property
+    def get_Y(self):
+        return self.thermo.Y
+    def set_Y(self,newY):
+        self.thermo.Y = newY
+    Y = property(get_Y,set_Y)
+
+    # X mole frac property
     def get_X(self):
         return self.thermo.X
     def set_X(self,newX):
         self.thermo.X = newX
     X = property(get_X,set_X)
 
+    # _contents property
     def get_contents(self):
         return self.thermo
     def set_contents(self):

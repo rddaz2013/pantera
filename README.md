@@ -60,56 +60,34 @@ then import pantera like any other library:
 import pantera as pt
 ```
 
-# Let's Get Started
+# What's in the Pantera Library?
 
-Cool. We'll start with a tour of the Pantera module.
+## Pantera Core
 
-You can import the pantera library into Python:
+The core of the Pantera library is the source code in the ```pantera``` directory.
+This is divided into various sub-modules, like reactors and gases.
 
-```python
-import pantera 
+## Tests
 
-pantera_test() # doesn't work yet
-```
+The Pantera library uses nose as the unit testing framework. 
+The ```tests``` directory contains nose tests that cover various
+parts of the Pantera library.
 
-## Gases submodule
+# Getting Started
 
-Pantera defines several utility functions
-for things like specification of composition,
-conversion of formats, mixing of gases, and 
-others.
-
-```python
-from pantera.gases import *
-
-ready_to_ignite = MethaneAir(phi=0.5)
-```
-
-[Visit the gases README.md for details](pantera/gases/README.md)
-
-## Reactors submodule
-
-You can create Pantera reactor objects. These 
-extend Cantera's Reactor classes.
-
-You can create them once you import Pantera:
+You can import the pantera library into Python like this:
 
 ```python
 from pantera import *
-
-pr = PanteraReactor()
 ```
 
-[Visit the reactors README.md for details](pantera/reactors/README.md)
-
-## Engineering submodule
-
-Cantera is very handy for everyday engineering calculations. This submodule
-creates some objects and methods that assist in these kinds of calculations.
+or, if you want to keep your namespace clean,
 
 ```python
-from pantera import *
-
-h = Heater()
+import pantera as pt
 ```
+
+Once that import statement is working,
+you can explore the various submodules of Pantera
+[at the Pantera core source code README.md file](pantera/README.md)
 

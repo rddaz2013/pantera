@@ -11,7 +11,7 @@ class PistonCylinder(PanteraReactor):
         * an environment
         """
         # We'll call the parent constructor first
-        PanteraReactor.__init__(self,contents,params={},**kwargs)
+        PanteraReactor.__init__(self,contents,params,**kwargs)
 
         # Create the environment 
         if env_gas == None:

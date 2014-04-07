@@ -70,8 +70,8 @@ def test_PistonCylinder2():
     c = pc._contents
     assert c!=None
 
-    assert pr.params['dummyvar1']==10.0
-    assert pr.params['dummyvar2']==100.0
+    assert pc.params['dummyvar1']==10.0
+    assert pc.params['dummyvar2']==100.0
 
 def test_PistonCylinder3():
     """
