@@ -1,7 +1,7 @@
 pantera
 =======
 
-A toolbox for using and extending Cantera in Python.
+Pantera is a toolbox for using and extending Cantera in Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
 
 ## What is Cantera?
 
