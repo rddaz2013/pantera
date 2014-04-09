@@ -6,6 +6,10 @@ def get_gas(T,P,X):
     g.TPX = T, P, X
     return g
 
+def get_autoignition_input_dict():
+    d = {}
+    return d
+
 def test_PanteraReactor1():
     """
     Testing barebones initialization of PanteraReactor
@@ -78,6 +82,33 @@ def test_PistonCylinder3():
     Testing initialization of piston-cylinder with weightless piston 
     """
     pass
+
+
+def test_AutoignitionReactor1():
+    """
+    Test initialization of autoignition reactor with contents specified as gas object.
+    """
+    g = GRI30()
+    T = 798.15
+    P = one_atm
+    X = "CH4:1.5, O2:3.0, H:0.00001"
+    g.TPX = T,P,X
+    a = AutoignitionReactor(contents=g)
+
+#def test_AutoignitionReactor1():
+#    d = get_autoignition_input_dict()
+#    a = AutoignitionReactor(params=d)
+#
+#    T = 798.15
+#    P = one_atm
+#    X = "CH4:1.5, O2:3.0, H:0.00001"
+#
+#    d['T'] = T 
+#    d['P'] = P 
+#    d['X'] = X 
+
+
+
 
 
 

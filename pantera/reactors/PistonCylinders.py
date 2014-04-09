@@ -36,7 +36,10 @@ class IsobaricPC(PC):
     """
     def __init__(self,**kwargs):
         PC.__init__(self,**kwargs)
-        self.w.set(K = 1.0e9, A = 1.0)# expansion parameter dV/dt = KA(P_1 - P_2)
+
+        # expansion parameter dV/dt = KA(P_1 - P_2)
+        self.w.expansion_rate_coeff = 1.0e9 
+        self.w.area = 1.0
 
 class IsochoricPC(PC):
     """
