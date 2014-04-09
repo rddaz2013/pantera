@@ -1,0 +1,3 @@
+class PanteraException(Exception):
+    pass
+
