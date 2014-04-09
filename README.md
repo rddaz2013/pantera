@@ -3,6 +3,10 @@ pantera
 
 Pantera is a toolbox for using and extending Cantera in Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
 
+Pantera is in beta and is under active development. 
+
+Pantera is _not_ a finished product!
+
 ## What is Cantera?
 
 Cantera is an object-oriented toolkit for chemical kinetics.
