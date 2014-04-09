@@ -4,6 +4,13 @@ from ..gases.BottledGases import *
 class CanteraReactor(ct.Reactor):
     """
     Monkey patch the Cantera reactor class
+    so that you can get the TPX of the contents,
+    or the contents themselves.
+    r = Reactor()
+    print r.T
+    print r.P
+    print r.X
+    print r._contents.viscosity()
     """
     # P pressure property
     def get_P(self):

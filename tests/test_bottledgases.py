@@ -1,6 +1,9 @@
 from pantera import *
 
 def test_SanDiego():
+    """
+    Testing solutions that use the San Diego mechanism
+    """
     sd = SanDiego()
 
     # verify something about 
@@ -8,6 +11,9 @@ def test_SanDiego():
     # (nspecies? something?)
 
 def test_MethaneAir():
+    """
+    Testing methane-air solutions 
+    """
     ma1 = MethaneAir()
 
     # verify mole fractions match
