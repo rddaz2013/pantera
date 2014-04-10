@@ -98,6 +98,29 @@ print c.Y
 
 Woo hoo!
 
+
+## Configurations submodule
+
+Configurations are the Pantera equivalent of a Cantera ReactorNet. 
+Configurations allow for the fact that the user will want to 
+initialize their system the way they initialize reactors -
+by inserting a gas and passing options - but want to solve their
+system the way they solve a reactor network - with a simple
+call to a solve() method.
+
+The solution that configurations implement is to redefine the 
+Cantera ReactorNet constructor to take the same arguments as 
+a Cantera Reactor, then to initialize a reactor, 
+and finally to initialize the reactor network with that 
+reactor.
+
+You can extend the Pantera Configuration class to handle multiple reactors,
+multiple inlets, multiple outlets, or whatever your situation is.
+You just redefine the constructor to take whatever arguments you want, 
+then properly intialize whatever reactors and flow devices you want.
+When you call advance, or do anything else with your configuration/reactor network,
+it will behave just like a regular reactor network.
+
 ## Gases submodule
 
 Pantera defines several utility functions
