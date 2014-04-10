@@ -2,9 +2,21 @@
 
 This directory contains classes that define Pantera configurations.
 
-Configurations are the Pantera analog to Cantera reactor networks. 
-In Pantera, reactor networks are also called "configurations." (As in,
-a specific, pre-defined configuration of reactors, inlets, outlets, etc.)
+Configurations are the Pantera equivalent of a Cantera ReactorNet. 
+Configurations allow for the fact that the user will want to 
+initialize their system the way they initialize reactors -
+by inserting a gas and passing options - but want to solve their
+system the way they solve a reactor network - with a simple
+call to a solve() method.
+
+You can extend the Pantera Configuration class to handle multiple reactors,
+multiple inlets, multiple outlets, or whatever your situation is.
+You just redefine the constructor to take whatever arguments you want, 
+then properly intialize whatever reactors and flow devices you want.
+When you call advance, or do anything else with your configuration/reactor network,
+it will behave just like a regular reactor network.
+
+## How to Use Configurations
 
 We can treat them the same way we treat reactor networks. With Cantera:
 
@@ -34,7 +46,7 @@ We'll cover some examples shortly.
 
 
 
-## Piston Cylinder (PC) Reactors
+## Piston Cylinder (PC) Configurations
 
 Piston cylinder configurations consist of two gases,
 one on either side of a flexible wall.
