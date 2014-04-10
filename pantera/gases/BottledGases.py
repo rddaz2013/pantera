@@ -50,7 +50,7 @@ class SanDiego(object):
         try:
             return self.sol
         except AttributeError:
-            self.sol = ct.Solution('SanDiego201402_complete.cti')
+            self.sol = ct.Solution('SanDiego.cti')
             return self.sol
 
 class MethaneAir(object):

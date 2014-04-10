@@ -24,7 +24,7 @@ def test_configuration():
     """
     g = get_gas()
     ptreactor = pt.PanteraReactor(g)
-    ptconfig = pt.Configuration([ptreactor])
+    ptconfig = pt.Configuration(g)
     ptconfig.advance(0.01)
 
 def test_piston_cylinder_config():
