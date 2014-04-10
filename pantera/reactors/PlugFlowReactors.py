@@ -17,3 +17,9 @@ solve:
 cstr train
 """
 
+class PlugFlowReactor(PanteraReactor):
+    def __init__(self,*args,**kwargs):
+        PanteraReactor.__init__(self,*args,**kwargs)
+
+        # make N reactors
+

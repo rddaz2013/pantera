@@ -4,6 +4,7 @@ from numpy import allclose
 from functions import *
 
 
+
 def test_PanteraReactor_empty():
     """
     Testing initialization of PanteraReactor 
@@ -12,6 +13,8 @@ def test_PanteraReactor_empty():
 
     # make sure no params works
     pr = pt.PanteraReactor()
+
+
 
 def test_PanteraReactor_contents_inputparams():
     """
@@ -42,37 +45,6 @@ def test_PanteraReactor_contents_inputparams():
     # test that we can access our input parameter values
     assert pr.params['dummyvar1']==10.0
     assert pr.params['dummyvar2']==100.0
-
-
-
-
-def get_autoignition_input_dict():
-    d = {}
-    return d
-
-
-def test_AutoignitionReactor1():
-    """
-    Testing initialization of autoignition reactor with contents specified as gas object.
-    """
-    g = GRI30()
-    T = 798.15
-    P = one_atm
-    X = "CH4:1.5, O2:3.0, H:0.00001"
-    g.TPX = T,P,X
-    a = AutoignitionReactor(contents=g)
-
-#def test_AutoignitionReactor1():
-#    d = get_autoignition_input_dict()
-#    a = AutoignitionReactor(params=d)
-#
-#    T = 798.15
-#    P = one_atm
-#    X = "CH4:1.5, O2:3.0, H:0.00001"
-#
-#    d['T'] = T 
-#    d['P'] = P 
-#    d['X'] = X 
 
 
 
