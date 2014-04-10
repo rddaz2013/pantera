@@ -88,7 +88,8 @@ def convert_arrays_to_dict(speciesNames,moleFractions):
     d = {}
     assert len(speciesNames) == len(moleFractions)
     for name, amt in zip(speciesNames,moleFractions):
-        d[name] = amt
+        if amt > 0.0:
+            d[name] = amt
     return d
 
 
