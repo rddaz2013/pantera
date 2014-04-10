@@ -5,7 +5,7 @@ from functions import *
 
 
 
-def get_autoignition_input_dict():
+def get_autoignition_dict():
     d = {}
     return d
 
@@ -13,26 +13,29 @@ def get_autoignition_input_dict():
 
 def test_AutoignitionReactor_specify_contents():
     """
-    Testing initialization of autoignition reactor with user-specified gas contents
+    Testing initialization of autoignition reactor config with user-specified gas contents
     """
-    g = GRI30()
+    g = pt.GRI30()
     T = 798.15
-    P = one_atm
+    P = pt.one_atm
     X = "CH4:1.5, O2:3.0, H:0.00001"
     g.TPX = T,P,X
 
-    a = AutoignitionReactor(contents=g)
+    a = pt.AutoignitionConfig(contents=g)
 
 
 
 def test_AutoignitionReactor_specify_contents_inputparams():
-    pass
+    """
+    Testing initialization of autoignition reactor config with user-specified gas contents and input params
+    """
+    g = pt.GRI30()
     T = 798.15
-    P = one_atm
+    P = pt.one_atm
     X = "CH4:1.5, O2:3.0"
-    g = get_gas(T,P,X)
+    g.TPX = T,P,X
 
     input_params = get_autoignition_dict()
 
-    a = AutoignitionReactor(contents=g,params=input_params)
+    a = pt.AutoignitionConfig(contents=g,params=input_params)
 

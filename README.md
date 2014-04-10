@@ -1,5 +1,4 @@
-pantera
-=======
+# Pantera: A Toolbox for Cantera in Python
 
 Pantera is a toolbox for using and extending Cantera in Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
 
@@ -69,7 +68,7 @@ import pantera as pt
 ## Pantera Core
 
 The core of the Pantera library is the source code in the ```pantera``` directory.
-This is divided into various sub-modules, like reactors and gases.
+This is divided into various sub-modules.
 
 ## Tests
 
@@ -77,15 +76,11 @@ The Pantera library uses nose as the unit testing framework.
 The ```tests``` directory contains nose tests that cover various
 parts of the Pantera library.
 
+
+
 # Getting Started
 
 You can import the pantera library into Python like this:
-
-```python
-from pantera import *
-```
-
-or, if you want to keep your namespace clean,
 
 ```python
 import pantera as pt

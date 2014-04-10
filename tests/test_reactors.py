@@ -24,7 +24,7 @@ def test_PanteraReactor_contents_inputparams():
 
     # prep contents/input params
     T = 798.15
-    P = one_atm
+    P = pt.one_atm
     X = "CH4:1.5, O2:3.0"
     g = get_gas(T,P,X)
     input_params = {'dummyvar1':10.0,'dummyvar2':100.0}
@@ -48,25 +48,13 @@ def test_PanteraReactor_contents_inputparams():
 
 
 
-def test_EquilibriumReactor():
-    """
-    Testing equilibrium reactor
-    """
-    g = Solution('equilibrium.cti')
-    T = 798.15
-    P = one_atm
-    X = "CH4:1.5, O2:3.0"
-    g.TPX = T,P,X
 
-    e = EquilibriumReactor(contents=g)
-    e.solve()
 
-    Tgold = T
-    Pgold = P
-    Xgold = np.array([2./3., 1./3., 0., 0.])
-    assert allclose(e._contents.T,Tgold) 
-    assert allclose(e._contents.P,Pgold)
-    assert allclose(e._contents.X,Xgold)
+
+
+
+
+
 
 
 

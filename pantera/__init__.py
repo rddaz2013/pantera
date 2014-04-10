@@ -1,7 +1,10 @@
 import cantera as ct
 from .gases import *
 from .reactors import *
+from .configurations import *
 
+# this makes cantera available directly through pt namespace
+# (dubious...)
 from cantera import *
 
 
