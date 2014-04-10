@@ -109,7 +109,7 @@ and any associated inlets and outlets, and solve it.
 They extend Cantera ReactorNets, but have a constructor like
 Cantera Reactors. This is more intuitive for the user to specify.
 
-
+[Visit the configurations README.md for details](configurations/README.md)
 
 ## Gases submodule
 
@@ -124,7 +124,7 @@ from pantera.gases import *
 ready_to_ignite = MethaneAir(phi=0.5)
 ```
 
-[Visit the gases README.md for details](pantera/gases/README.md)
+[Visit the gases README.md for details](gases/README.md)
 
 ## Reactors submodule
 
@@ -139,7 +139,7 @@ from pantera import *
 pr = PanteraReactor()
 ```
 
-[Visit the reactors README.md for details](pantera/reactors/README.md)
+[Visit the reactors README.md for details](reactors/README.md)
 
 ## Engineering submodule
 
