@@ -10,10 +10,10 @@ Python interface that disappeared in the 2.0 to 2.1 transition.
 
 Pantera Sub-Modules:
 * Cantera Monkey-Patches - patches existing Cantera classes - for essential functionality ONLY!
-* [Gases submodule](pantera/gases/README.md) - gas compositions, gas mixing, gas objects
-* [Configurations submodule](pantera/configurations/README.md) - extends Cantera reactor networks to be more useful and flexible (plug flow reactors, packed bed reactors, ignition reactors, recycle reactors, etc.)
-* [Reactors submodule](pantera/reactors/README.md) - extends Cantera reactors to be more useful (but most of the useful stuff is in the configurations)
-* [Engineering submodule](pantera/engineering/README.md) - applied engineering problems solved with Cantera
+* [Gases submodule](gases/README.md) - gas compositions, gas mixing, gas objects
+* [Configurations submodule](configurations/README.md) - extends Cantera reactor networks to be more useful and flexible (plug flow reactors, packed bed reactors, ignition reactors, recycle reactors, etc.)
+* [Reactors submodule](reactors/README.md) - extends Cantera reactors to be more useful (but most of the useful stuff is in the configurations)
+* [Engineering submodule](engineering/README.md) - applied engineering problems solved with Cantera
 
 ## Cantera Monkey-Patches
 

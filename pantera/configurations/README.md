@@ -49,7 +49,7 @@ through an expansion coefficient K,
 ```
 \frac{dV}{dt} = K A ( P_{left} - P_{right} )
 ```
-[More about piston cylinder systems](pantera/configurations/PC.md)
+[More about piston cylinder systems](PC.md)
 
 
 
