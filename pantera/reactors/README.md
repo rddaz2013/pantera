@@ -8,49 +8,90 @@ self.params
 
 problemSetup
 
-## 
+## Pantera Reactor Bases
+
+Contains base classes that define common functionality
+for all Pantera reactors (specifically, taking a dictionary
+of reactor input parameters, and defining a problem setup
+method that processes these input parameters.
 
 ## Piston Cylinder (PC) Reactors
 
-You can either create a piston-cylinder system yourself, and specify
-all of the parameters for the piston yourself,
-or you can use some of the classes below for more brevity.
+You can either create your own piston-cylinder system,
+which can take whatever input parameters you want to define,
+or you can use some of the provided piston-cylinder classes below.
+
+Piston cylinder systems are defined as a reactor 
+that contains a flexible wall between itself and
+an environment. The expansion of the reactor 
+is proportional to the pressure drop across the wall:
+
+```latex
+\frac{dV}{dt} = K A ( P_{left} - P_{right} )
+```
 
 ### Isobaric PC (Weightless Piston)
 
-Sets K = 0
+An isobaric piston-cylinder has a constant pressure, 
+which requires the proportionality constant K to be
+very large, e.g.:
+
+```
+K = 1.0e6
+```
 
 #### Adiabatic 
 
-remember that we are inheriting Cantera Reactor types
+To make an adiabatic isobaric piston-cylinder system,
+remember that we are inheriting Cantera Reactor types,
+so we can pass any parameters that Cantera Reactors take.
 
-so energy equation behavior is same as Cantera reactors (adiabatic by default)
+To make an adiabatic isobaric piston cylinder, we pass
+the ```energy='on'``` option:
 
-we make these reactors adiabatic/isothermal the same way we make Cantera reactors adiabatic/isothermal
+```python
+import pantera as pt
 
-pass in energy='on'
+g = pt.Solution('gri30.xml')
+g.TPX = 898.15, pt.one_atm, "C2H6:1.0, O2:4.0"
 
-example
+e = pt.Solution('gri30.xml')
+e.TPX = 898.15, pt.one_atm, "N2:0.79, O2:0.2"
+
+pc = pt.IsobaricPC(contents=g,energy='on')
+```
 
 #### Isothermal
 
-pass in energy='off'
+Same as above, except now we pass ```energy='off'```:
 
-example
+```python
+import pantera as pt
+
+g = pt.Solution('gri30.xml')
+g.TPX = 898.15, pt.one_atm, "C2H6:1.0, O2:4.0"
+
+e = pt.Solution('gri30.xml')
+e.TPX = 898.15, pt.one_atm, "N2:0.79, O2:0.2"
+
+pc = pt.IsobaricPC(contents=g,energy='off')
+```
 
 ### Isochoric PC (Heavy Piston)
 
-Sets K = Big
+Isochoric piston-cylinders have a constant volume, so
+the expansion coefficient is zero to prevent any
+expansion: 
+
+```python
+K = 0
+```
 
 ### Adiabatic
 
-pass in energy='on'
-
-example
+Pass ```energy='on'``` to constructor
 
 ### Isothermal
 
-pass in energy='off'
-
-example
+Pass ```energy='off'``` to constructor
 
