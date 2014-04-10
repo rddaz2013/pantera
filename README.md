@@ -70,6 +70,9 @@ import pantera as pt
 The core of the Pantera library is the source code in the ```pantera``` directory.
 This is divided into various sub-modules.
 
+You can explore the various submodules of Pantera
+[at the Pantera core source code README.md file](pantera/README.md)
+
 ## Tests
 
 The Pantera library uses nose as the unit testing framework. 
