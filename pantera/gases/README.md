@@ -56,7 +56,7 @@ specification methods and Cantera gas phase objects.
 
 Converting gases to composition vectors, dicts, and strings:
 
-```
+```python
 import pantera as pt
 
 gas = pt.SanDiego()
@@ -77,7 +77,7 @@ print pt.convert_gas_to_composition_string()
 
 ### Composition Dict Specification
 
-```
+```python
 import pantera as pt
 
 gas = pt.SanDiego()
@@ -97,7 +97,7 @@ print pt.convert_arrays_to_dict(namesvector,xvector)
 
 Converting between composition vectors and dicts:
 
-```
+```python
 import pantera as pt
 
 g = pt.SanDiego()
@@ -127,7 +127,7 @@ print pt.convert_composition_vector_to_dict(g,xvector)
 
 Converting between composition strings and dicts:
 
-```
+```python
 import pantera as pt
 
 g = pt.SanDiego()
