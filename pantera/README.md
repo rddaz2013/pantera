@@ -4,12 +4,11 @@ This readme describes the layout of the core source code of Pantera.
 
 Pantera provides classes that interface with and extend Cantera classes.
 
-Pantera also monkey-patches Cantera, modifying Cantera objects to provide
-useful functionality and/or bring back some of the features of Cantera's 
-Python interface that disappeared in the 2.0 to 2.1 transition.
+Pantera also monkey-patches Cantera. Monkey patches are modifications to 
+existing objects that add new features or bring back useful but deprecated features.
 
 Pantera Sub-Modules:
-* Cantera Monkey-Patches - patches existing Cantera classes - for essential functionality ONLY!
+* Cantera Monkey-Patches - patches existing Cantera classes (adds essential functionality ONLY!)
 * [Gases submodule](gases/README.md) - gas compositions, gas mixing, gas objects
 * [Configurations submodule](configurations/README.md) - extends Cantera reactor networks to be more useful and flexible (plug flow reactors, packed bed reactors, ignition reactors, recycle reactors, etc.)
 * [Reactors submodule](reactors/README.md) - extends Cantera reactors to be more useful (but most of the useful stuff is in the configurations)
@@ -48,7 +47,7 @@ Works for single species names or for lists of species names.
 ### Reactor class Monkey-Patches
 
 The Reactor class monkey-patches are actually provided in the PanteraReactors.py file in the 
-reactors submodule. It is described here anyway, since it is still a monkey-patch.
+```pantera.reactors``` submodule. It is described here anyway, since it is still a monkey-patch.
 
 In Cantera 2.0, you could access the state of a Cantera reactor
 like this:
@@ -153,3 +152,19 @@ from pantera import *
 h = Heater()
 ```
 
+## A Note on Namespaces
+
+The Pantera library keeps the namespace clean by importing Cantera like this:
+
+```python
+import cantera as ct
+```
+
+This prevents conflicting functions and objects.
+
+If you have to use Cantera and Pantera together, import them like this:
+
+```python
+import cantera as ct
+import pantera as pt
+```
