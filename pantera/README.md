@@ -7,8 +7,6 @@ Pantera provides classes that interface with and extend Cantera classes.
 Pantera also monkey-patches Cantera. Monkey patches are modifications to 
 existing objects that add new features or bring back useful but deprecated features.
 
-You do not need to import Cantera if you have already imported Pantera.
-
 Pantera Sub-Modules:
 * Cantera Monkey-Patches - patches existing Cantera classes (adds essential functionality ONLY!)
 * [Gases submodule](gases/README.md) - gas compositions, gas mixing, gas objects
@@ -162,4 +160,11 @@ The Pantera library keeps the namespace clean by importing Cantera like this:
 import cantera as ct
 ```
 
-This prevents conflicting functions and objects. You do not need to import Cantera if you have already imported Pantera.
+This prevents conflicting functions and objects.
+
+If you have to use Cantera and Pantera together, import them like this:
+
+```python
+import cantera as ct
+import pantera as pt
+```
