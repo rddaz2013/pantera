@@ -1,7 +1,8 @@
 """
 Class for computing heat duty
 
-This is a heater, initialized with a gas.
+This class performs simple thermodynamic calculations
+to allow for heat duty and temperature change calculations.
 
 Perfect heaters:
 * You can specify a heat duty, and see what the final temperature is
