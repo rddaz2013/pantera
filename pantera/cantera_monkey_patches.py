@@ -3,7 +3,13 @@ import cantera as ct
 #################################
 # Monkey patch Cantera constants
 
-OneAtm = ct.one_atm
+# one bar 
+one_bar = 1.0e5
+OneBar = one_bar
+
+# one atm
+one_atm = 1.01325e5
+OneAtm = one_atm
 
 #################################
 # Monkey patch Cantera Solution class
