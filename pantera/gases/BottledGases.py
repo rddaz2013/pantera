@@ -74,7 +74,7 @@ class MethaneAir(object):
             nox = 1
             nmeth = phi * meth_air_stoich
             nn2 = (0.79/0.21)*nox
-            composition = "CH4:%0.5d,O2:%0.5d,N2:%0.5d"%(nmeth,nox,nn2)
+            composition = "CH4:%0.5f,O2:%0.5f,N2:%0.5f"%(nmeth,nox,nn2)
             self.sol.TPX = 298.15, ct.one_atm, composition
             return self.sol
 
