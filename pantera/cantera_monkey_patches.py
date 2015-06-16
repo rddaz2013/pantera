@@ -1,8 +1,14 @@
 import cantera as ct
+#from cantera import *
 
 #################################
 # Monkey patch Cantera constants
 
+# bars
+one_bar = ct.one_atm*(1.0e5/1.01325e5)
+OneBar = one_bar
+
+# atms
 OneAtm = ct.one_atm
 
 #################################
