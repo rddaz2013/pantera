@@ -1,6 +1,6 @@
 # Pantera: A Toolbox for Cantera in Python
 
-Pantera is a toolbox for using and extending Cantera in Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
+Pantera is a toolbox for using and extending Cantera 2.1 [(link to latest Cantera tarball on Sourceforge)](http://sourceforge.net/projects/cantera/files/latest/download) with Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
 
 Pantera is in beta and is under active development. 
 
