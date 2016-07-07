@@ -2,9 +2,7 @@
 
 Pantera is a toolbox for using and extending Cantera 2.1 [(link to latest Cantera tarball on Sourceforge)](http://sourceforge.net/projects/cantera/files/latest/download) with Python: [http://charlesreid1.github.io/pantera](http://charlesreid1.github.io/pantera)
 
-Pantera is in beta and is under active development. 
-
-Pantera is _not_ a finished product!
+Pantera is beta software. Pantera is _not_ a finished product!
 
 ## What is Cantera?
 
