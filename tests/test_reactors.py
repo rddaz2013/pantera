@@ -23,7 +23,7 @@ def test_PanteraReactor_contents_inputparams():
     """
 
     # prep contents/input params
-    T = 798.15
+    T = 998.15
     P = pt.one_atm
     X = "CH4:1.5, O2:3.0"
     g = get_gas(T,P,X)
