@@ -16,7 +16,7 @@ def test_AutoignitionReactor_specify_contents():
     Testing initialization of autoignition reactor config with user-specified gas contents
     """
     g = pt.GRI30()
-    T = 798.15
+    T = 998.15
     P = pt.one_atm
     X = "CH4:1.5, O2:3.0, H:0.00001"
     g.TPX = T,P,X
@@ -30,7 +30,7 @@ def test_AutoignitionReactor_specify_contents_inputparams():
     Testing initialization of autoignition reactor config with user-specified gas contents and input params
     """
     g = pt.GRI30()
-    T = 798.15
+    T = 998.15
     P = pt.one_atm
     X = "CH4:1.5, O2:3.0"
     g.TPX = T,P,X

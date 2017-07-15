@@ -6,7 +6,7 @@ from functions import *
 
 def get_gas():
     g = pt.Solution('SanDiego.cti')
-    g.TPX = 898.15, 9*ct.one_atm, "C2H6:1.0, O2:4.0"
+    g.TPX = 1098.15, 5*ct.one_atm, "C2H6:1.0, O2:4.0"
     return g
 
 def test_cantera_reactornet():
