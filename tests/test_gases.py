@@ -72,13 +72,10 @@ def test_gas2dict():
 
     lead_dict = convert_gas_to_composition_dict(g)
 
-    gold_dict = {}
-    gold_dict['CO2'] = 2.0
-    gold_dict['CO']  = 2.0
-
+    gold_dict = {'CO2': 2.0, 'CO': 2.0}
     # normalize
-    gold_sum = sum( [gold_dict[k] for k in gold_dict.keys()] )
-    for k in gold_dict.keys():
+    gold_sum = sum(gold_dict[k] for k in gold_dict)
+    for k in gold_dict:
         gold_dict[k] = gold_dict[k]/gold_sum
 
     assert lead_dict==gold_dict
@@ -91,10 +88,7 @@ def test_arrays2dict():
     moleFractions = [0.2,0.4,0.4]
     lead_dict = convert_arrays_to_dict(names,moleFractions)
 
-    gold_dict = {}
-    for name, frac in zip(names, moleFractions):
-        gold_dict[name] = frac
-
+    gold_dict = dict(zip(names, moleFractions))
     assert lead_dict==gold_dict
 
 
@@ -112,13 +106,10 @@ def test_vector2dict():
 
     lead_dict = convert_composition_vector_to_dict(g,starting_vector)
 
-    gold_dict = {}
-    gold_dict['CH4'] = 8.0
-    gold_dict['C2H6'] = 1.0
-
+    gold_dict = {'CH4': 8.0, 'C2H6': 1.0}
     # normalize
-    gold_sum = sum( [gold_dict[k] for k in gold_dict.keys()] )
-    for k in gold_dict.keys():
+    gold_sum = sum(gold_dict[k] for k in gold_dict)
+    for k in gold_dict:
         gold_dict[k] = gold_dict[k]/gold_sum
 
     assert lead_dict==gold_dict
@@ -129,10 +120,7 @@ def test_dict2vector():
     """
     g = mix2()
 
-    starting_dict = {}
-
-    starting_dict['CH4'] = 8.0
-    starting_dict['C2H6'] = 1.0
+    starting_dict = {'CH4': 8.0, 'C2H6': 1.0}
 
     lead_vector = convert_composition_dict_to_vector(g,starting_dict)
 

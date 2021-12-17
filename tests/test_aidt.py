@@ -6,8 +6,7 @@ from functions import *
 
 
 def get_autoignition_dict():
-    d = {}
-    return d
+    return {}
 
 
 

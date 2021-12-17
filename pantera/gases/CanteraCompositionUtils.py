@@ -64,11 +64,11 @@ def convert_gas_to_composition_dict( gas ):
     Converts a Cantera gas with a specified composition into
     a composition dict of mole fractions
     """
-    d = {}
-    for sp in gas.species_names:
-        if gas.mole_fraction(sp) > 0.0:
-            d[sp] = gas.mole_fraction(sp)
-    return d
+    return {
+        sp: gas.mole_fraction(sp)
+        for sp in gas.species_names
+        if gas.mole_fraction(sp) > 0.0
+    }
 
 def convert_gas_to_composition_string( gas ):
     """
@@ -76,8 +76,7 @@ def convert_gas_to_composition_string( gas ):
     a representative composition string of style "CH4:1.0, N2:4.0"
     """
     d = convert_gas_to_composition_dict(gas)
-    s = convert_composition_dict_to_string(d)
-    return s
+    return convert_composition_dict_to_string(d)
 
 
 def convert_arrays_to_dict(speciesNames,moleFractions):
@@ -85,12 +84,12 @@ def convert_arrays_to_dict(speciesNames,moleFractions):
     Converts two vectors, one containing species names and 
     one containing mole fractions, into a species dictionary
     """
-    d = {}
     assert len(speciesNames) == len(moleFractions)
-    for name, amt in zip(speciesNames,moleFractions):
-        if amt > 0.0:
-            d[name] = amt
-    return d
+    return {
+        name: amt
+        for name, amt in zip(speciesNames, moleFractions)
+        if amt > 0.0
+    }
 
 
 # ==========================================
@@ -99,11 +98,7 @@ def convert_arrays_to_dict(speciesNames,moleFractions):
 
 def convert_composition_vector_to_dict( g, Xv ):
     """Convert a composition vector Xv into a dict, for a given gas g"""
-    Xd = {}
-    for iv, v in enumerate(Xv):
-        if v > 0.0:
-            Xd[g.species_name(iv)] = v
-    return Xd
+    return {g.species_name(iv): v for iv, v in enumerate(Xv) if v > 0.0}
 
 def convert_composition_dict_to_vector( g, Xd ):
     """Convert a composition dict Xd into a vector, for a given gas g"""
@@ -136,8 +131,8 @@ def convert_composition_string_to_dict( X ):
             raise Exception(err)
 
     # normalize
-    results_sum = sum( [results[k] for k in results.keys()] )
-    for k in results.keys():
+    results_sum = sum(results[k] for k in results)
+    for k in results:
         results[k] = results[k]/results_sum
 
     return results

@@ -47,7 +47,7 @@ def getGasMixture( gases,     # list of gases
     and composition mixing via composition dict
     """
 
-    if model_file == None or gas_phase_name == None:
+    if model_file is None or gas_phase_name is None:
         err = "ERROR: CanteraGasUtils: You must specify a model file (via params['model_file']) and gas phase name (via params['gas_phase_name']) for the gas mixture."
         raise Exception(err)
 
@@ -93,9 +93,6 @@ def mixture_TPX( gases, Xs):
                 mixture_d[sp] += wx_i * mf
             elif mf != 0.0: 
                 mixture_d[sp] = wx_i * mf
-            else:
-                pass
-
     mixture_s = convert_composition_dict_to_string(mixture_d)
 
     # --------------
@@ -110,10 +107,7 @@ def mixture_TPX( gases, Xs):
     # T_mix = \sum_i [ (x_i C_pi )/( C_pmix ) ] T_i
 
     # first compute c_pmix
-    cp_mix = 0
-    for gas, wx_i in zip(gases,Xs):
-        cp_mix += wx_i * gas.cp_mole
-
+    cp_mix = sum(wx_i * gas.cp_mole for gas, wx_i in zip(gases,Xs))
     # next compute T_mix
     T_mix = 0
     for gas, wx_i in zip(gases,Xs):
@@ -129,7 +123,7 @@ def mixture_TPX( gases, Xs):
 
     # -------------------
     # Return TPX
-    
+
     return T_mix, press, mixture_s
 
 
@@ -161,9 +155,6 @@ def mixture_HPX( gases, Xs ):
                 mixture_d[sp] += wx_i * gas.mole_fraction(sp)
             elif gas.moleFraction(sp) != 0.0: 
                 mixture_d[sp] = wx_i * gas.mole_fraction(sp)
-            else:
-                pass
-
     mixture_s = convert_composition_dict_to_string(mixture_d)
 
     # --------------
@@ -190,6 +181,6 @@ def mixture_HPX( gases, Xs ):
 
     # -------------------
     # Return HPX
-    
+
     return H_mix, press, mixture_s
 

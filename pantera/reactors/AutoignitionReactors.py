@@ -34,7 +34,7 @@ class AutoignitionReactor(IsobaricPC):
 
         self.problem_setup()
 
-        if contents==None:
+        if contents is None:
             g = GRI30()
 
             # how to see if X in 
@@ -66,9 +66,6 @@ class AutoignitionReactor(IsobaricPC):
             self.X = self.params['X']
         elif 'Y' in self.params:
             self.Y = self.params['Y']
-
-            # convert to/store as X
-            pass
 
     def problem_setup_pressure(self):
         pass

@@ -15,7 +15,7 @@ class PistonCylinder(PanteraReactor):
 
         # Create the environment
         # (if none specified, use air at same TP as reactor contents)
-        if environment == None:
+        if environment is None:
             environment = Air()
             environment.TPX = self.T,self.thermo.P,"N2:0.79,O2:0.21"
         self.env = ct.Reservoir(environment)

@@ -76,7 +76,7 @@ class PanteraReactor(CanteraReactor):
 
         # If the user doesn't specify contents,
         # we'll fill it with air
-        if contents == None:
+        if contents is None:
             contents = Air()
 
         # Now call the parent constructor
